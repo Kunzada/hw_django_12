@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center" style="margin-top: 200px;">
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a href="{% url 'home' %}" class="btn btn-success">No</a>
+</form>
+</div>
+{% endblock%}

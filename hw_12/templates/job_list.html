@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="container mx-auto">
+  <div class="row">
+    {% for job in jobs %}
+      <div class="col-sm-4">
+        <div class="card mb-3">
+          <img src="{{ job.image.url }}" class="card-img-top" alt="{{ job.jobTitle }}" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.jobTitle }}</h5>
+            <p class="card-text">Salary: {{ job.minSalary }}-{{ job.maxSalary }} тг</p>
+            <a href="{% url 'detail' job.id %}" class="btn btn-primary">Read more</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{%endblock%}
